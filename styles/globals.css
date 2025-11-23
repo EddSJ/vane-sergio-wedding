@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom color palette for wedding theme */
+@layer base {
+  :root {
+    --olive-800: #556B2F;
+    --olive-700: #6B8E4A;
+    --olive-600: #87A96B;
+    --olive-100: #F0F4E8;
+    --cream-50: #FDFCF8;
+    --cream-100: #F5F5DC;
+    --gold-500: #D4AF37;
+    --gold-600: #B8860B;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .bg-olive-800 { background-color: var(--olive-800); }
+  .bg-olive-700 { background-color: var(--olive-700); }
+  .bg-olive-600 { background-color: var(--olive-600); }
+  .bg-olive-100 { background-color: var(--olive-100); }
+  .bg-cream-50 { background-color: var(--cream-50); }
+  .bg-cream-100 { background-color: var(--cream-100); }
+  .bg-gold-500 { background-color: var(--gold-500); }
+  .bg-gold-600 { background-color: var(--gold-600); }
+
+  .text-olive-800 { color: var(--olive-800); }
+  .text-olive-700 { color: var(--olive-700); }
+  .text-olive-600 { color: var(--olive-600); }
+  .text-cream-100 { color: var(--cream-100); }
+  .text-cream-200 { color: #E8E6D0; }
+  .text-gold-500 { color: var(--gold-500); }
+  .text-gold-600 { color: var(--gold-600); }
+
+  .border-olive-600 { border-color: var(--olive-600); }
+  .hover\:bg-olive-600:hover { background-color: var(--olive-600); }
+  .hover\:bg-olive-700:hover { background-color: var(--olive-700); }
+  .hover\:bg-gold-600:hover { background-color: var(--gold-600); }
+  .hover\:bg-gold-700:hover { background-color: #A0522D; }
+
+  .from-olive-800 { --tw-gradient-from: var(--olive-800); }
+  .to-olive-600 { --tw-gradient-to: var(--olive-600); }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-fade-out {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Timeline animation */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--olive-600);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--olive-700);
+}
