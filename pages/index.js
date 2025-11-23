@@ -48,16 +48,17 @@ export default function WeddingEnvelope() {
       <Head>
         <title>VANE & SERGIO - Nuestra Boda</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Acompáñanos el 7 de Febrero 2026. VANE & SERGIO - Nuestra Boda." />
-        <meta property="og:title" content="VANE & SERGIO - Nuestra Boda" />
-        <meta property="og:description" content="Save the Date: 7 de Febrero 2026. Ceremonia y recepción en Jardín Las Jacarandas." />
+        <meta name="description" content="Acompáñanos el 7 de febrero de 2026. VANE & SERGIO - Nuestra boda." />
+        <meta property="og:title" content="VANE & SERGIO - Nuestra boda" />
+        <meta property="og:description" content="Reserva la fecha: 7 de febrero de 2026. Ceremonia y recepción en Jardín Las Jacarandas." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/images/share-img.png" />
         <meta property="og:image:alt" content="VANE & SERGIO - Nuestra Boda" />
         <meta property="og:image:type" content="image/png" />
+        <meta property="og:locale" content="es_MX" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="VANE & SERGIO - Nuestra Boda" />
-        <meta name="twitter:description" content="Acompáñanos el 7 de Febrero 2026." />
+        <meta name="twitter:title" content="VANE & SERGIO - Nuestra boda" />
+        <meta name="twitter:description" content="Acompáñanos el 7 de febrero de 2026." />
         <meta name="twitter:image" content="/images/share-img.png" />
         <script dangerouslySetInnerHTML={{__html: `
           tailwind.config = {
@@ -99,8 +100,8 @@ export default function WeddingEnvelope() {
               <span className="text-sm tracking-wide transition-opacity duration-300">NUESTRA CANCIÓN</span>
             )}
             <span className="relative w-6 h-6">
-              <span className={`absolute inset-0 text-gold-500 transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}>🎵</span>
-              <span className={`absolute inset-0 text-gold-500 line-through transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}>🎵</span>
+              <span className={`absolute inset-0 text-gold-500 transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}>⏸</span>
+              <span className={`absolute inset-0 text-gold-500 transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}>▶</span>
             </span>
           </button>
         </div>
@@ -109,17 +110,45 @@ export default function WeddingEnvelope() {
       <style jsx>{`
         .intro-gradient {
           position: relative;
-          --olive: 107,142,74;
-          --intensity: 0.18;
-          background: linear-gradient(120deg, rgba(255,255,255,1) 0%, rgba(var(--olive), var(--intensity)) 40%, rgba(255,255,255,1) 80%);
-          background-size: 200% 200%;
-          animation: sweepGrad 16s ease-in-out infinite;
+          --olive: 85,107,47;
+          --intensity: 0.28;
+          background: linear-gradient(120deg, rgba(255,255,255,1) 0%, rgba(var(--olive), var(--intensity)) 38%, rgba(255,255,255,1) 78%);
+          background-size: 300% 300%;
+          animation: sweepGrad 10s ease-in-out infinite;
           overflow: hidden;
+        }
+        .intro-gradient::before {
+          content: '';
+          position: absolute;
+          inset: -10%;
+          background:
+            radial-gradient(900px circle at 20% 30%, rgba(212,175,55,0.12), rgba(212,175,55,0) 40%),
+            radial-gradient(800px circle at 80% 70%, rgba(var(--olive), 0.10), rgba(85,107,47,0) 35%);
+          animation: floatGrad 9s ease-in-out infinite alternate;
+          pointer-events: none;
+        }
+        .intro-gradient::after {
+          content: '';
+          position: absolute;
+          inset: -12%;
+          background: radial-gradient(1000px circle at 50% 50%, rgba(245,245,220,0.10), rgba(245,245,220,0) 50%);
+          animation: driftGrad 12s ease-in-out infinite alternate;
+          pointer-events: none;
         }
         @keyframes sweepGrad {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
+        }
+        @keyframes floatGrad {
+          0% { transform: translate3d(-4%, -3%, 0) scale(1.03); }
+          50% { transform: translate3d(4%, 3%, 0) scale(1.05); }
+          100% { transform: translate3d(-3%, 4%, 0) scale(1.03); }
+        }
+        @keyframes driftGrad {
+          0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+          50% { transform: translate3d(2%, -2%, 0) rotate(2deg); }
+          100% { transform: translate3d(-2%, 2%, 0) rotate(-2deg); }
         }
       `}</style>
 
@@ -227,7 +256,7 @@ function WeddingWebsite() {
       <section className="py-16 bg-cream-50">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-serif text-5xl md:text-6xl text-olive-800 mb-3">
-            Save the Date
+            Reserva la Fecha
           </h2>
           <div className="mx-auto w-24 h-0.5 bg-gold-500 rounded mb-6"></div>
           <p className="font-sans text-2xl text-olive-600 mb-4">
@@ -373,6 +402,7 @@ function WeddingWebsite() {
 
               {[
                 {time: '2:30 PM', title: 'Recepción', img: '/images/rings.png'},
+                {time: '3:00 PM', title: 'Ceremonia', img: '/images/couple.png'},
                 {time: '4:00 PM', title: 'Comida', img: '/images/restaurant.png'},
                 {time: '5:00 PM', title: 'Festejo', img: '/images/musical-notes.png'},
                 {time: '11:00 PM', title: 'Cierre', img: '/images/car.png'}
@@ -413,21 +443,20 @@ function WeddingWebsite() {
 
           <div className="max-w-md mx-auto mb-6">
             <div className="bg-cream-50 rounded-xl p-6 shadow-sm border border-cream-100">
-              <div className="font-serif text-olive-800 mb-4">Prohibidos</div>
+              <div className="font-serif text-olive-800 mb-4">Detalles importantes</div>
+              <p className="font-sans text-olive-700 mb-4">Les agradecemos evitar estos colores para ese día:</p>
               <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-6">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4 w-48">
+                <div className="bg-white border border-gold-500 rounded-lg p-4 w-48">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-red-600">🚫</span>
-                    <span className="font-sans text-red-700 font-semibold">No Blanco</span>
+                    <span className="font-sans text-olive-800 font-semibold">Evitar blanco</span>
                   </div>
                   <div className="w-full h-8 rounded bg-white border"></div>
                 </div>
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4 w-48">
+                <div className="bg-white border border-gold-500 rounded-lg p-4 w-48">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-red-600">🚫</span>
-                    <span className="font-sans text-red-700 font-semibold">No Verde Olivo</span>
+                    <span className="font-sans text-olive-800 font-semibold">Evitar verde olivo</span>
                   </div>
-                  <div className="w-full h-8 rounded" style={{backgroundColor: 'var(--olive-800)'}}></div>
+                  <div className="w-full h-8 rounded" style={{backgroundColor: 'rgb(85,107,47)'}}></div>
                 </div>
               </div>
             </div>
@@ -440,14 +469,9 @@ function WeddingWebsite() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg border border-cream-100 p-8 text-center">
             <h2 className="font-serif text-4xl md:text-5xl text-olive-800 mb-4">V&amp;S</h2>
-            <div className="font-sans text-olive-700 space-y-2 mb-6">
-              <p>Aunque tu presencia es nuestro mayor regalo, si</p>
-              <p>aun asi quieres obsequiarnos algo, puedes</p>
-              <p>consultar la siguiente guia.</p>
-              <p>No necesariamente debe ser adquirido en estas</p>
-              <p>tiendas, pero si deseas realizarnos ese obsequio,</p>
-              <p>te agradecemos que lo marques como</p>
-              <p>comprado.</p>
+            <div className="font-sans text-olive-700 space-y-3 mb-6">
+              <p>Aunque tu presencia es nuestro mayor regalo, si deseas hacernos un obsequio puedes consultar la siguiente guía.</p>
+              <p>No es necesario adquirirlo en las tiendas sugeridas; si decides hacerlo, te agradecemos que lo marques como comprado.</p>
             </div>
 
             <div className="flex justify-center">
