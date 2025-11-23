@@ -191,7 +191,7 @@ function WeddingWebsite() {
   })
 
   useEffect(() => {
-    const weddingDate = new Date('2026-02-07T14:30:00')
+    const weddingDate = new Date('2026-02-07T20:30:00Z')
     
     const timer = setInterval(() => {
       const now = new Date().getTime()
@@ -313,6 +313,7 @@ function WeddingWebsite() {
           <h2 className="font-serif text-4xl md:text-5xl text-olive-800 mb-8">
             Cuenta Regresiva
           </h2>
+          <p className="font-sans text-olive-700 mb-6">Hora del Centro de México (CDMX): 2:30 PM</p>
           
           {/* Countdown Timer */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-2xl mx-auto">
@@ -498,7 +499,13 @@ function WeddingWebsite() {
             className="w-full h-full object-cover" 
             loading="lazy" 
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/65 to-transparent"></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.75) 20%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.18) 75%, rgba(0,0,0,0) 100%)'
+            }}
+          ></div>
         </div>
         <div className="bg-black text-white text-xs py-2 text-center">
           Hecho con ❤️ | @namelesseddsj
