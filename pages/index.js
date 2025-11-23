@@ -48,6 +48,17 @@ export default function WeddingEnvelope() {
       <Head>
         <title>VANE & SERGIO - Nuestra Boda</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Acompáñanos el 7 de Febrero 2026. VANE & SERGIO - Nuestra Boda." />
+        <meta property="og:title" content="VANE & SERGIO - Nuestra Boda" />
+        <meta property="og:description" content="Save the Date: 7 de Febrero 2026. Ceremonia y recepción en Jardín Las Jacarandas." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/share-img.png" />
+        <meta property="og:image:alt" content="VANE & SERGIO - Nuestra Boda" />
+        <meta property="og:image:type" content="image/png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="VANE & SERGIO - Nuestra Boda" />
+        <meta name="twitter:description" content="Acompáñanos el 7 de Febrero 2026." />
+        <meta name="twitter:image" content="/images/share-img.png" />
         <script dangerouslySetInnerHTML={{__html: `
           tailwind.config = {
             theme: {
