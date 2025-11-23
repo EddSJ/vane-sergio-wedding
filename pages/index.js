@@ -61,7 +61,8 @@ export default function WeddingEnvelope() {
         <meta name="twitter:description" content="Acompáñanos el 7 de febrero de 2026." />
         <meta name="twitter:image" content="/images/share-img.png" />
         <script dangerouslySetInnerHTML={{__html: `
-          tailwind.config = {
+          window.tailwind = window.tailwind || {};
+          window.tailwind.config = {
             theme: {
               extend: {
                 colors: {
@@ -84,7 +85,7 @@ export default function WeddingEnvelope() {
                 }
               }
             }
-          }
+          };
         `}} />
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -411,10 +412,12 @@ function WeddingWebsite() {
                   <div className="absolute left-1/2 -translate-x-1/2 w-16 h-16 bg-white rounded-full shadow-md border border-gold-500 flex items-center justify-center">
                     <img src={event.img} alt={`Icono ${event.title}`} className="w-10 h-10 object-contain" />
                   </div>
-                  <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-white rounded-lg p-6 shadow-lg">
+                  <div className="flex items-center justify-between">
                     <div className="font-sans text-lg text-olive-800">{event.title}</div>
                     <div className="font-serif text-xl text-gold-600">{event.time}</div>
                   </div>
+                </div>
                 </div>
               ))}
             </div>
